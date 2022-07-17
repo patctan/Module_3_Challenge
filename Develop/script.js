@@ -32,6 +32,10 @@ function generatePassword() {
 
   var SpecialChar = confirm("Do you want you password to have special characters?");
 
+  if (Lowercase == false && Uppercase == false && Numbers == false && SpecialChar == false) {
+    alert("Please confirm at least one option.")
+  }
+
 
   var LowercaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
