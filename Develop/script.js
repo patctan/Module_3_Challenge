@@ -10,14 +10,19 @@
 function generatePassword() {
   console.log("Test");
 
+  //Asks user to input desired character length.
   var HowLong = prompt("How many characters do you want in your password?\nPick a number between 8 and 128");
 
+  //Turns user input into an integer.
   var PasswordLength = parseInt(HowLong);
 
+  //Stops further questions if initial input is invalid.
   if (isNaN(PasswordLength) || PasswordLength < 8 || PasswordLength > 128) {
     alert("Invalid input. Please enter a number between 8 and 128.");
     return;
   }
+
+  //Registers if user wants lowercase, uppercase, numbers, and/or special characters in their password.
 
   var Lowercase = confirm("Do you want your password to have lowercase characters?");
 
@@ -36,24 +41,30 @@ function generatePassword() {
 
   var UppercaseList = []
 
+
+  //Turns items in the LowercaseList array into Uppercase characters
   for (var i=0; i < LowercaseList.length; i++ ) {
     UppercaseList = LowercaseList[i].toUpperCase;
   }
 
   var UsersChoices = []
 
+  //Adds lowercase array if user wants lowercase letters.
   if (Lowercase == true) {
     UsersChoices.push(LowercaseList);
   }
 
+  //Adds uppcase array if user wants uppercase letters.
   if (Uppercase == true) {
     UsersChoices.push(UppercaseList);
   }
 
+  //Adds number array if user wants numbers.
   if (Numbers == true) {
     UsersChoices.push(NumberList);
   }
 
+  //Adds special character array if user wants special characters.
   if (SpecialChar == true) {
     UsersChoices.push(SpecialCharList);
   }
