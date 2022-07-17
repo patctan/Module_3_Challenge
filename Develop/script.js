@@ -1,23 +1,30 @@
 // Assignment code here
 
 
-
-//Prompt method
-//more prompts Confirm method
-var CharLength = prompt("How many characters do you want in your password?\nPick a number between 8 and 128");
-
-var lowercase = confirm("Do you want your password to have lowercase characters?")
-
-var uppercase = confirm("Do you want your password to have uppercase characters?")
-
-var numbers = confirm("Do you want your password to have numbers?")
-
-var SpecialChar = confirm("Do you want you password to have special characters?")
-
-
-
-function generatePassword () {
+function generatePassword() {
   console.log("Test");
+
+  var HowLong = prompt("How many characters do you want in your password?\nPick a number between 8 and 128")
+
+  var PasswordLength = parseInt(HowLong)
+
+  if (isNaN(PasswordLength) || PasswordLength <=8 || PasswordLength >=128) {
+    alert("Invalid input. Please enter a number between 8 and 128.")
+    return
+  }
+}
+
+//var lowercase = confirm("Do you want your password to have lowercase characters?");
+
+//var uppercase = confirm("Do you want your password to have uppercase characters?");
+
+//var numbers = confirm("Do you want your password to have numbers?");
+
+//var SpecialChar = confirm("Do you want you password to have special characters?");
+
+
+
+
 
   // 1)Prompt for password criteria
   // a) length 8-128 characters, Prompt method
@@ -27,8 +34,8 @@ function generatePassword () {
   // 4) Display Generated password
   
 
-  return "hi"
-}
+  
+
 
 
   
