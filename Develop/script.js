@@ -7,6 +7,27 @@
   // 3) Generate password based on criteria
   // 4) Display Generated password
 
+//function GetRandomLower(LowercaseList) {
+  //return LowercaseList[Math.floor(Math.random()*LowercaseList.length)];
+//};
+
+//function GetRandomUpper(UppercaseList) {
+  //return UppercaseList[Math.floor(Math.random()*UppercaseList.length)];
+//};
+
+//function GetRandomNumber(NumberList) {
+  //return NumberList[Math.floor(Math.random()*NumberList.length)];
+//};
+
+//function GetRandomSpecialChar(SpecialCharList) {
+  //return SpecialCharList[Math.floor(Math.random()*SpecialCharList.length)];
+//};
+
+//function GetRandomItem(min, max) {
+  //return Math.random()* (max-min) + min;
+//};
+
+
 function generatePassword() {
   console.log("Test");
 
@@ -32,8 +53,10 @@ function generatePassword() {
 
   var SpecialChar = confirm("Do you want you password to have special characters?");
 
+  //Makes user start again if they don't choose to have lowercase, uppercase, numbers, or special characters in their password.
   if (Lowercase == false && Uppercase == false && Numbers == false && SpecialChar == false) {
-    alert("Please confirm at least one option.")
+    alert("Please confirm at least one option.");
+    return;
   }
 
 
@@ -43,13 +66,7 @@ function generatePassword() {
 
   var SpecialCharList = ["!", "@", "#", "$", "%", "^", "&", "*", "?", "~", "`"]
 
-  var UppercaseList = []
-
-
-  //Turns items in the LowercaseList array into Uppercase characters
-  for (var i=0; i < LowercaseList.length; i++ ) {
-    UppercaseList = LowercaseList[i].toUpperCase;
-  }
+  var UppercaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
   var UsersChoices = []
 
@@ -72,6 +89,49 @@ function generatePassword() {
   if (SpecialChar == true) {
     UsersChoices.push(SpecialCharList);
   }
+
+  console.log(UsersChoices);
+
+  var NewPassword = "";
+
+  for (var i = 0; i < PasswordLength; i++){
+
+    //1) Pick random char from UsersChoices array.
+    //2) Keep adding Random chars up to PasswordLength.
+
+    
+
+
+
+
+    //var LowerChoice = GetRandomLower(UsersChoices);
+    //var RandomLower = GetRandomLower(LowerChoice);
+    
+    //var UpperChoice = GetRandomUpper(UsersChoices);
+    //var RandomUpper = GetRandomUpper(UpperChoice);
+
+    //var NumberChoice = GetRandomNumber(UsersChoices);
+    //var RandomNumber = GetRandomNumber(NumberChoice);
+
+    //var SpecialCharChoice = GetRandomSpecialChar(UsersChoices);
+    //var RandomSpecial = GetRandomSpecialChar(SpecialCharChoice);
+
+    //NewPassword +=RandomLower +=RandomUpper +=RandomNumber +=RandomSpecial;
+
+    //var RandomList = GetRandomItem(UsersChoices);
+    //var RandomChar = GetRandomItem(RandomList);
+
+    //var PasswordResult = UsersChoices[Math.floor(Math.random)*PasswordLength];
+
+    //console.log(PasswordResult);
+
+    //NewPassword += RandomChar;
+
+
+
+  }
+
+  //console.log(NewPassword);
 }
  
 
