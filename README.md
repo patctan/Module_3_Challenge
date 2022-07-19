@@ -6,4 +6,4 @@ https://patctan.github.io/Module_3_Challenge/
 
 https://github.com/patctan/Module_3_Challenge
 
-![Password_Generator_Screenshot](Develop\assets\Password_Generator_Screenshot.png)
+![Password_Generator_Screenshot](C:\Users\stick\OneDrive\Desktop\Module_3_Challenge\Develop\assets\Password_Generator_Screenshot.png)
