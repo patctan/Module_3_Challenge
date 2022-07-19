@@ -1,20 +1,20 @@
 // Assignment code here
 
 //Get a random item from an array.
-function GetRandomLower(LowercaseList) {
-  return LowercaseList[Math.floor(Math.random()*LowercaseList.length)];
+function getRandomLower(lowercaseList) {
+  return lowercaseList[Math.floor(Math.random()*lowercaseList.length)];
 };
 
-function GetRandomUpper(UppercaseList) {
-  return UppercaseList[Math.floor(Math.random()*UppercaseList.length)];
+function getRandomUpper(uppercaseList) {
+  return uppercaseList[Math.floor(Math.random()*uppercaseList.length)];
 };
 
-function GetRandomNumber(NumberList) {
-  return NumberList[Math.floor(Math.random()*NumberList.length)];
+function getRandomNumber(numberList) {
+  return numberList[Math.floor(Math.random()*numberList.length)];
 };
 
-function GetRandomSpecialChar(SpecialCharList) {
-  return SpecialCharList[Math.floor(Math.random()*SpecialCharList.length)];
+function getRandomSpecialChar(specialCharList) {
+  return specialCharList[Math.floor(Math.random()*specialCharList.length)];
 };
 
 function getPossibleCharacters(possibleCharacters) {
@@ -25,41 +25,41 @@ function generatePassword() {
   console.log("Test");
 
   //Asks user to input desired character length.
-  var HowLong = prompt("How many characters do you want in your password?\nPick a number between 8 and 128");
+  var howLong = prompt("How many characters do you want in your password?\nPick a number between 8 and 128");
 
   //Turns user input into an integer.
-  var PasswordLength = parseInt(HowLong);
+  var passwordLength = parseInt(howLong);
 
   //Stops further questions if initial input is invalid.
-  if (isNaN(PasswordLength) || PasswordLength < 8 || PasswordLength > 128) {
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     alert("Invalid input. Please enter a number between 8 and 128.");
     return;
   }
 
   //Registers if user wants lowercase, uppercase, numbers, and/or special characters in their password.
 
-  var Lowercase = confirm("Do you want your password to have lowercase characters?");
+  var lowercase = confirm("Do you want your password to have lowercase characters?");
 
-  var Uppercase = confirm("Do you want your password to have uppercase characters?");
+  var uppercase = confirm("Do you want your password to have uppercase characters?");
 
-  var Numbers = confirm("Do you want your password to have numbers?");
+  var numbers = confirm("Do you want your password to have numbers?");
 
-  var SpecialChar = confirm("Do you want you password to have special characters?");
+  var specialChar = confirm("Do you want you password to have special characters?");
 
   //Makes user start again if they don't choose to have lowercase, uppercase, numbers, or special characters in their password.
-  if (Lowercase == false && Uppercase == false && Numbers == false && SpecialChar == false) {
+  if (lowercase == false && uppercase == false && numbers == false && specialChar == false) {
     alert("Please confirm at least one option.");
     return;
   }
 
 
-  var LowercaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  var lowercaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-  var NumberList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+  var numberList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
-  var SpecialCharList = ["!", "@", "#", "$", "%", "^", "&", "*", "?", "~", "`"]
+  var specialCharList = ["!", "@", "#", "$", "%", "^", "&", "*", "?", "~", "`"]
 
-  var UppercaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+  var uppercaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 
   var possibleCharacters = []// an array of possible characters based on user choices use concat method to tie arrays
@@ -67,46 +67,47 @@ function generatePassword() {
   var generatedPasswordArr = []// password as array that will be used
 
   //Adds lowercase array if user wants lowercase letters.
-    if (Lowercase == true ) {
-      possibleCharacters = LowercaseList.concat(possibleCharacters);
-      neededCharacters.push(GetRandomLower(LowercaseList))
+    if (lowercase == true ) {
+      possibleCharacters = lowercaseList.concat(possibleCharacters);
+      neededCharacters.push(getRandomLower(lowercaseList))
      };
    
      //Adds uppcase array if user wants uppercase letters.
-     if (Uppercase == true) {
-      possibleCharacters = UppercaseList.concat(possibleCharacters);
-      neededCharacters.push(GetRandomUpper(UppercaseList))
+     if (uppercase == true) {
+      possibleCharacters = uppercaseList.concat(possibleCharacters);
+      neededCharacters.push(getRandomUpper(uppercaseList))
 
      };
    
      //Adds number array if user wants numbers.
-     if (Numbers == true) {
-      possibleCharacters = NumberList.concat(possibleCharacters);
-      neededCharacters.push(GetRandomNumber(NumberList))
+     if (numbers == true) {
+      possibleCharacters = numberList.concat(possibleCharacters);
+      neededCharacters.push(getRandomNumber(numberList))
        
      };
    
      //Adds special character array if user wants special characters.
-     if (SpecialChar == true) {
-      possibleCharacters = SpecialCharList.concat(possibleCharacters);
-      neededCharacters.push(GetRandomSpecialChar(SpecialCharList))
+     if (specialChar == true) {
+      possibleCharacters = specialCharList.concat(possibleCharacters);
+      neededCharacters.push(getRandomSpecialChar(specialCharList))
 
      };
 
-  //need a for loop for looping the input number of times iterating through the possible array and pushing to generated password array
-  for (var i = 0; i < PasswordLength; i++) {
+  //Generates a password in array form based on user input.
+  for (var i = 0; i < passwordLength; i++) {
     var possibleCharacter = getPossibleCharacters(possibleCharacters);
 
     generatedPasswordArr.push(possibleCharacter);
   }
 
-    // Mix in at least one of each of the needed character from the needed character array in the generated password
+    // Makes sure at least one of each of the needed character from the needed character array is in the generated password
     for (var i = 0; i < neededCharacters.length; i++) {
       generatedPasswordArr[i] = neededCharacters[i];
     }
 
     console.log(generatedPasswordArr);
-
+    
+    //returns the new generated password array as a string without commas
     return generatedPasswordArr.join("");
 
 
