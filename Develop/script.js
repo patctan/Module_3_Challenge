@@ -1,32 +1,25 @@
 // Assignment code here
 
-  // 1)Prompt for password criteria
-  // a) length 8-128 characters, Prompt method
-  // b) lowercase, uppercase, numbers, special characters, Confirm method
-  // 2) Validate input
-  // 3) Generate password based on criteria
-  // 4) Display Generated password
+//Get a random item from an array.
+function GetRandomLower(LowercaseList) {
+  return LowercaseList[Math.floor(Math.random()*LowercaseList.length)];
+};
 
-//function GetRandomLower(LowercaseList) {
-  //return LowercaseList[Math.floor(Math.random()*LowercaseList.length)];
-//};
+function GetRandomUpper(UppercaseList) {
+  return UppercaseList[Math.floor(Math.random()*UppercaseList.length)];
+};
 
-//function GetRandomUpper(UppercaseList) {
-  //return UppercaseList[Math.floor(Math.random()*UppercaseList.length)];
-//};
+function GetRandomNumber(NumberList) {
+  return NumberList[Math.floor(Math.random()*NumberList.length)];
+};
 
-//function GetRandomNumber(NumberList) {
-  //return NumberList[Math.floor(Math.random()*NumberList.length)];
-//};
+function GetRandomSpecialChar(SpecialCharList) {
+  return SpecialCharList[Math.floor(Math.random()*SpecialCharList.length)];
+};
 
-//function GetRandomSpecialChar(SpecialCharList) {
-  //return SpecialCharList[Math.floor(Math.random()*SpecialCharList.length)];
-//};
-
-//function GetRandomItem(min, max) {
-  //return Math.random()* (max-min) + min;
-//};
-
+function getPossibleCharacters(possibleCharacters) {
+  return possibleCharacters[Math.floor(Math.random()*possibleCharacters.length)]
+};
 
 function generatePassword() {
   console.log("Test");
@@ -68,75 +61,57 @@ function generatePassword() {
 
   var UppercaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-  var UsersChoices = []
+
+  var possibleCharacters = []// an array of possible characters based on user choices use concat method to tie arrays
+  var neededCharacters = []// an array of must characters in result
+  var generatedPasswordArr = []// password as array that will be used
 
   //Adds lowercase array if user wants lowercase letters.
-  if (Lowercase == true) {
-    UsersChoices.push(LowercaseList);
+    if (Lowercase == true ) {
+      possibleCharacters = LowercaseList.concat(possibleCharacters);
+      neededCharacters.push(GetRandomLower(LowercaseList))
+     };
+   
+     //Adds uppcase array if user wants uppercase letters.
+     if (Uppercase == true) {
+      possibleCharacters = UppercaseList.concat(possibleCharacters);
+      neededCharacters.push(GetRandomUpper(UppercaseList))
+
+     };
+   
+     //Adds number array if user wants numbers.
+     if (Numbers == true) {
+      possibleCharacters = NumberList.concat(possibleCharacters);
+      neededCharacters.push(GetRandomNumber(NumberList))
+       
+     };
+   
+     //Adds special character array if user wants special characters.
+     if (SpecialChar == true) {
+      possibleCharacters = SpecialCharList.concat(possibleCharacters);
+      neededCharacters.push(GetRandomSpecialChar(SpecialCharList))
+
+     };
+
+  //need a for loop for looping the input number of times iterating through the possible array and pushing to generated password array
+  for (var i = 0; i < PasswordLength; i++) {
+    var possibleCharacter = getPossibleCharacters(possibleCharacters);
+
+    generatedPasswordArr.push(possibleCharacter);
   }
 
-  //Adds uppcase array if user wants uppercase letters.
-  if (Uppercase == true) {
-    UsersChoices.push(UppercaseList);
-  }
+    // Mix in at least one of each of the needed character from the needed character array in the generated password
+    for (var i = 0; i < neededCharacters.length; i++) {
+      generatedPasswordArr[i] = neededCharacters[i];
+    }
 
-  //Adds number array if user wants numbers.
-  if (Numbers == true) {
-    UsersChoices.push(NumberList);
-  }
+    console.log(generatedPasswordArr);
 
-  //Adds special character array if user wants special characters.
-  if (SpecialChar == true) {
-    UsersChoices.push(SpecialCharList);
-  }
-
-  console.log(UsersChoices);
-
-  var NewPassword = "";
-
-  for (var i = 0; i < PasswordLength; i++){
-
-    //1) Pick random char from UsersChoices array.
-    //2) Keep adding Random chars up to PasswordLength.
-
-    
+    return generatedPasswordArr.join("");
 
 
 
-
-    //var LowerChoice = GetRandomLower(UsersChoices);
-    //var RandomLower = GetRandomLower(LowerChoice);
-    
-    //var UpperChoice = GetRandomUpper(UsersChoices);
-    //var RandomUpper = GetRandomUpper(UpperChoice);
-
-    //var NumberChoice = GetRandomNumber(UsersChoices);
-    //var RandomNumber = GetRandomNumber(NumberChoice);
-
-    //var SpecialCharChoice = GetRandomSpecialChar(UsersChoices);
-    //var RandomSpecial = GetRandomSpecialChar(SpecialCharChoice);
-
-    //NewPassword +=RandomLower +=RandomUpper +=RandomNumber +=RandomSpecial;
-
-    //var RandomList = GetRandomItem(UsersChoices);
-    //var RandomChar = GetRandomItem(RandomList);
-
-    //var PasswordResult = UsersChoices[Math.floor(Math.random)*PasswordLength];
-
-    //console.log(PasswordResult);
-
-    //NewPassword += RandomChar;
-
-
-
-  }
-
-  //console.log(NewPassword);
 }
- 
-
-    
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
